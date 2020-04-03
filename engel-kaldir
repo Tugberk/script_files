@@ -1,0 +1,54 @@
+// ==UserScript==
+// @name         engel-kaldir
+// @namespace    http://tampermonkey.net/
+// @version      1
+// @description  leyla-kontrol
+// @author       tugberk
+// @match        https://eksisozluk.com/biri*
+// @grant        none
+// ==/UserScript==
+(function() {
+    'use strict';
+
+    var a = document.getElementById("blocked-link");
+    var c = a.getAttribute("data-remove-caption");
+    var b = a.getAttribute("data-remove-url");
+    var d = a.getAttribute("data-added");
+
+
+
+if((c == "engellemeyi bırak") && (d = "True")){
+    var x = document.getElementById("user-badges");
+    var y = x.getElementsByTagName("a")[0];
+    var z = y.getAttribute("href");
+    z = z.replace("/?q=","");
+
+    if(z == "leyla"){
+        document.getElementById("blocked-link").click();
+        alert("kaldirdim");
+        window.close();
+
+    }
+    else if (z == "kay%c4%b1p") {
+        document.getElementById("blocked-link").click();
+        alert("kaldirdim");
+        window.close();
+    }
+    else if (z == "%c3%a7aylak") {
+        document.getElementById("blocked-link").click();
+        alert("kaldirdim");
+        window.close();
+
+    }
+    else {
+        console.log("no");
+        window.close();
+    }
+}
+    else {
+        alert("ok");
+        window.close();
+    }
+
+
+})();
